@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import "./App.css";
+import { Canvas } from "react-three-fiber";
+import Sphere from "./Components/SolarObjects/Sphere";
+import { OrbitControls, Stars } from "@react-three/drei";
+import earth from "./Components/Textures/earth.jpg";
+import sun from "./Components/Textures/sun.jpg";
+import mars from "./Components/Textures/mars.jpg";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Canvas>
+        <OrbitControls />
+        <ambientLight intensity={0.5} />
+        <spotLight position={[30, 30, 35]} angle={0.3} />
+        <Sphere position={[0, 0, 0]} picture={sun} />
+        <Sphere
+          position={[5, 0, 5]}
+          eulerOfSphere={{ x: 0, y: 0.3, z: 0 }}
+          picture={earth}
+        />
+        <Sphere position={[0, 0, 12]} picture={mars} />
+        <Stars />
+      </Canvas>
     </div>
   );
 }

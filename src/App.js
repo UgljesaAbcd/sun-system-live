@@ -20,6 +20,7 @@ function App() {
           position={[5, 0, 5]}
           eulerOfSphere={{ x: 0, y: 0.3, z: 0 }}
           picture={earth}
+          tiltedAxis={23.4}
         />
         <Sphere position={[0, 0, 12]} picture={mars} />
         <Stars />

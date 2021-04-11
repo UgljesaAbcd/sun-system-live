@@ -2,19 +2,26 @@ import React, { useRef, useEffect } from "react";
 import { TextureLoader, Vector3 } from "three";
 import { useFrame } from "react-three-fiber";
 
-const MySphere = ({ position, picture, time, tiltedAxis = 360 }) => {
+const MySphere = ({
+  position,
+  picture,
+  time,
+  tiltedAxis = 360,
+  speedIn8HsPerS = 8
+}) => {
   // ref for mesh (planet)
   const myMesh = useRef();
   // loader that wil load texture for mesh (planet)
   const loader = new TextureLoader();
   const planetTexture = loader.load(picture);
 
-  let radians = (tiltedAxis * Math.PI) / 180;
+  const radians = (tiltedAxis * Math.PI) / 180;
+  const speedRotation = 1 / speedIn8HsPerS / 10;
 
   let earthAxis2 = new Vector3(0, 1, 0).normalize();
 
   useFrame(() => {
-    myMesh.current.rotateOnAxis(earthAxis2, 0.05);
+    myMesh.current.rotateOnAxis(earthAxis2, speedRotation);
   });
 
   return (

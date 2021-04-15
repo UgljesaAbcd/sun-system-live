@@ -5,9 +5,13 @@ import { useFrame } from "react-three-fiber";
 const MySphere = ({
   position,
   picture,
-  time,
+  timeSpeed,
   tiltedAxis = 360,
-  speedIn8HsPerS = 8
+  rotationPerHrs = 0,
+  orbitalSpeedKmPerHrs = 0,
+  revolutionInDays,
+  initTile,
+  name
 }) => {
   // ref for mesh (planet)
   const myMesh = useRef();
@@ -15,13 +19,34 @@ const MySphere = ({
   const loader = new TextureLoader();
   const planetTexture = loader.load(picture);
 
+  // tilt of planet axis
   const radians = (tiltedAxis * Math.PI) / 180;
-  const speedRotation = 1 / speedIn8HsPerS / 10;
 
-  let earthAxis2 = new Vector3(0, 1, 0).normalize();
+  // speed of rotation of planet in 10th part of second
+  const speedRotation = rotationPerHrs / 36000;
+
+  const revolutionIn10thOfSeconds = revolutionInDays * 24 * 3600 * 10;
+  // speed of revolution of planet in 10th part of second
+  const angleOfRevPer10thOfSecond =
+    timeSpeed * (Math.PI / (orbitalSpeedKmPerHrs * revolutionIn10thOfSeconds));
+
+  let earthAxisNormalized = new Vector3(0, 1, 0).normalize();
 
   useFrame(() => {
-    myMesh.current.rotateOnAxis(earthAxis2, speedRotation);
+    myMesh.current.rotateOnAxis(earthAxisNormalized, speedRotation);
+    if (name && name == "sun") {
+    } else {
+      let currentTime = new Date();
+      let diffTime = (currentTime.getTime() - initTile.getTime()) * 2;
+
+      let angleDiff = angleOfRevPer10thOfSecond * (diffTime / 10);
+
+      let newX = Math.sin(angleDiff) * position[0];
+      let newZ = Math.cos(angleDiff) * position[2];
+
+      myMesh.current.position.setX(newX);
+      myMesh.current.position.setZ(newZ);
+    }
   });
 
   return (

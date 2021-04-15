@@ -16,7 +16,8 @@ import neptune from "./Components/Textures/neptune.jpg";
 import saturn from "./Components/Textures/saturn.jpg";
 
 function App() {
-  const speedOfRoration = 4;
+  const timeSpeed = 36000;
+  const initTile = new Date();
   return (
     <div className="App">
       <Canvas>
@@ -24,58 +25,103 @@ function App() {
         <ambientLight intensity={0.5} />
         <spotLight position={[30, 30, 35]} angle={0.3} />
         <Sphere
-          position={[0, 0, 0]}
+          position={[1, 0, 0]}
           picture={sun}
           tiltedAxis={7.25}
-          speedIn8HsPerS={224 / speedOfRoration}
+          rotationPerHrs={timeSpeed / 672}
+          orbitalSpeedKmPerHrs={0}
+          revolutionInDays={0}
+          initTile={initTile}
+          timeSpeed={timeSpeed}
+          name={"sun"}
         />
         <Sphere
-          position={[0, 0, 3]}
+          position={[5, 0, 5]}
           picture={mercury}
           tiltedAxis={0.03}
-          speedIn8HsPerS={469.2 / speedOfRoration}
+          rotationPerHrs={timeSpeed / 1407.5}
+          orbitalSpeedKmPerHrs={timeSpeed / 172192.209}
+          revolutionInDays={88}
+          initTile={initTile}
+          timeSpeed={timeSpeed}
+          name={"mercury"}
         />
         <Sphere
-          position={[0, 0, 6]}
+          position={[10, 0, 10]}
           picture={venus}
           tiltedAxis={2.64}
-          speedIn8HsPerS={1944 / speedOfRoration}
+          rotationPerHrs={timeSpeed / 5832}
+          orbitalSpeedKmPerHrs={timeSpeed / 126011.627}
+          revolutionInDays={224.7}
+          initTile={initTile}
+          timeSpeed={timeSpeed}
+          name={"venus"}
         />
         <Sphere
-          position={[0, 0, 9]}
+          position={[14, 0, 14]}
           picture={earth}
           tiltedAxis={23.4}
-          speedIn8HsPerS={8 / speedOfRoration}
+          rotationPerHrs={timeSpeed / 24}
+          orbitalSpeedKmPerHrs={timeSpeed / 107159.412}
+          revolutionInDays={365.3}
+          initTile={initTile}
+          timeSpeed={timeSpeed}
+          name={"earth"}
         />
         <Sphere
-          position={[0, 0, 12]}
+          position={[22, 0, 22]}
           picture={mars}
           tiltedAxis={25.19}
-          speedIn8HsPerS={8.207 / speedOfRoration}
+          rotationPerHrs={timeSpeed / 24.623}
+          orbitalSpeedKmPerHrs={timeSpeed / 90787.087}
+          revolutionInDays={656.98}
+          initTile={initTile}
+          timeSpeed={timeSpeed}
+          name={"mars"}
         />
         <Sphere
-          position={[0, 0, 15]}
+          position={[77, 0, 77]}
           picture={jupiter}
           tiltedAxis={3.13}
-          speedIn8HsPerS={3.308 / speedOfRoration}
+          rotationPerHrs={timeSpeed / 9.925}
+          orbitalSpeedKmPerHrs={timeSpeed / 47047.945}
+          revolutionInDays={4328.9}
+          initTile={initTile}
+          timeSpeed={timeSpeed}
+          name={"jupiter"}
         />
         <Sphere
-          position={[0, 0, 18]}
+          position={[142, 0, 142]}
           picture={saturn}
           tiltedAxis={26.73}
-          speedIn8HsPerS={3.552 / speedOfRoration}
+          rotationPerHrs={timeSpeed / 10.656}
+          orbitalSpeedKmPerHrs={timeSpeed / 34729.032}
+          revolutionInDays={10749.25}
+          timeSpeed={timeSpeed}
+          initTile={initTile}
+          name={"saturn"}
         />
         <Sphere
-          position={[0, 0, 21]}
+          position={[287, 0, 287]}
           picture={uran}
           tiltedAxis={82.23}
-          speedIn8HsPerS={5.747 / speedOfRoration}
+          rotationPerHrs={timeSpeed / 17.24}
+          orbitalSpeedKmPerHrs={timeSpeed / 24493.138}
+          revolutionInDays={30668}
+          timeSpeed={timeSpeed}
+          initTile={initTile}
+          name={"uran"}
         />
         <Sphere
-          position={[0, 0, 24]}
+          position={[449, 0, 449]}
           picture={neptune}
           tiltedAxis={28.32}
-          speedIn8HsPerS={5.37 / speedOfRoration}
+          rotationPerHrs={timeSpeed / 16.11}
+          orbitalSpeedKmPerHrs={timeSpeed / 19569.084}
+          revolutionInDays={60150}
+          timeSpeed={timeSpeed}
+          initTile={initTile}
+          name={"neptune"}
         />
         {/* <Sphere position={[0, 0, 27]} picture={pluto} tiltedAxis={57.47} /> */}
         {/* dole ovo je sa proprocijalnim rastojanjima*/}

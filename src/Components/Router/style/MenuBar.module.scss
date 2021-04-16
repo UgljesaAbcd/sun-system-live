@@ -1,0 +1,13 @@
+.gridStyle {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  :global(.item) {
+    color: white !important;
+    font-weight: 100;
+  }
+}
+.activeMenuItem {
+  font-weight: 900 !important;
+}

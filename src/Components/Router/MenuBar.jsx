@@ -44,11 +44,22 @@ const MenuBar = props => {
               to="/solar-system"
               as={NavLink}
               activeClassName={styles.activeMenuItem}
-              // exact
+              exact
               active={activeItem === "Solar-system"}
               onClick={handleItemClick}
             >
               <Button content="Solar system" basic inverted />
+            </Menu.Item>
+            <Menu.Item
+              name="Comparison"
+              to="/comparison"
+              as={NavLink}
+              activeClassName={styles.activeMenuItem}
+              exact
+              active={activeItem === "Comparison"}
+              onClick={handleItemClick}
+            >
+              <Button content="Comparison" basic inverted />
             </Menu.Item>
           </Menu.Menu>
         </Menu>

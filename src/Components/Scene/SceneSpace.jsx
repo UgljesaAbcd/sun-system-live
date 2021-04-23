@@ -19,10 +19,18 @@ const Scene = () => {
     <div className="App">
       <Canvas>
         <OrbitControls />
-        <ambientLight intensity={0.5} />
-        <spotLight position={[30, 30, 35]} angle={0.3} />
+        <pointLight intensity={1} color="white" position={[0, 0, 0]} />
+        <ambientLight
+          dispose={true}
+          intensity={0.03}
+          color="white"
+          position={[0, 0, 0]}
+          radius={2}
+          shadow
+          physicallyCorrectLights
+        />
         <Sphere
-          position={[1, 0, 0]}
+          position={[0, 0, 0]}
           picture={sun}
           tiltedAxis={7.25}
           rotationPerHrs={timeSpeed / 672}
@@ -46,7 +54,7 @@ const Scene = () => {
         <Sphere
           position={[10, 0, 10]}
           picture={venus}
-          tiltedAxis={2.64}
+          tiltedAxis={177.3}
           rotationPerHrs={timeSpeed / 5832}
           orbitalSpeedKmPerHrs={timeSpeed / 126011.627}
           revolutionInDays={224.7}

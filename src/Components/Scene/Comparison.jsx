@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { Canvas } from "react-three-fiber";
 import Sphere from "../SolarObjects/SphereComparison";
-import {
-  OrbitControls,
-  Stars,
-  Html,
-  calcPosFromAngles
-} from "@react-three/drei";
-import { Section } from "../Section/Section";
-// import MyDom from "../Section/Dom";
+import { OrbitControls, Stars, Html } from "@react-three/drei";
 import Menu from "semantic-ui-react/dist/commonjs/collections/Menu/Menu";
 import Dropdown from "semantic-ui-react/dist/commonjs/modules/Dropdown";
 import { planetObjectList } from "./Constants";
@@ -87,7 +80,7 @@ const Scene = () => {
 
         <OrbitControls />
         <ambientLight intensity={0.5} />
-        <spotLight position={[30, 30, 35]} angle={0.3} />
+        <spotLight position={[200, 200, 200]} angle={0.3} />
         {leftActiveObj}
         {rightActiveObj}
         <Stars

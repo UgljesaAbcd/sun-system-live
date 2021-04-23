@@ -50,9 +50,18 @@ const MySphere = ({
   });
 
   return (
-    <mesh ref={myMesh} rotation={[radians, 0, 0]} position={position}>
+    <mesh
+      ref={myMesh}
+      rotation={[radians, 0, 0]}
+      position={position}
+      receiveShadow={true}
+    >
       <sphereBufferGeometry args={[0.7, 30, 30]} attach="geometry" />
-      <meshStandardMaterial map={planetTexture} />
+      {name === "sun" ? (
+        <meshBasicMaterial color="white" />
+      ) : (
+        <meshStandardMaterial map={planetTexture} />
+      )}
     </mesh>
   );
 };

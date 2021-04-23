@@ -1,4 +1,4 @@
-import sun from "../../Components/Textures/sun.jpg";
+import sun from "../../Components/Textures/sun2.jpg";
 import mercury from "../../Components/Textures/mercury.png";
 import venus from "../../Components/Textures/venus.png";
 import earth from "../../Components/Textures/earth2.jpg";
@@ -8,6 +8,7 @@ import saturn from "../../Components/Textures/saturn.jpg";
 import uran from "../../Components/Textures/uranus.jpg";
 import neptune from "../../Components/Textures/neptune.jpg";
 import pluto from "../../Components/Textures/pluto.jpg";
+import moon from "../../Components/Textures/moon2.jpg";
 
 export const planetObjectList = [
   {
@@ -29,7 +30,7 @@ export const planetObjectList = [
     picture: mercury
   },
   {
-    tiltedAxis: 2.64,
+    tiltedAxis: 177.3,
     rotationSpeed: 5832,
     radius: 0.6051,
     key: "venus",
@@ -90,5 +91,14 @@ export const planetObjectList = [
     value: "neptune",
     text: "Neptune",
     picture: neptune
+  },
+  {
+    tiltedAxis: 0,
+    rotationSpeed: 50,
+    radius: 0.17371,
+    key: "moon",
+    value: "moon",
+    text: "Moon",
+    picture: moon
   }
 ];

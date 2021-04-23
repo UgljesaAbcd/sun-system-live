@@ -1,5 +1,6 @@
 import React from "react";
 import { Canvas } from "react-three-fiber";
+import SunSphere from "../SolarObjects/SunSphere";
 import Sphere from "../SolarObjects/Sphere";
 import { OrbitControls } from "@react-three/drei";
 import earth from "../../Components/Textures/earth2.jpg";
@@ -29,7 +30,7 @@ const Scene = () => {
           shadow
           physicallyCorrectLights
         />
-        <Sphere
+        <SunSphere
           position={[0, 0, 0]}
           picture={sun}
           tiltedAxis={7.25}

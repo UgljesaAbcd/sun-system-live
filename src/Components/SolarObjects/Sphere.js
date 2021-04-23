@@ -10,8 +10,7 @@ const MySphere = ({
   rotationPerHrs = 0,
   orbitalSpeedKmPerHrs = 0,
   revolutionInDays,
-  initTile,
-  name
+  initTile
 }) => {
   // ref for mesh (planet)
   const myMesh = useRef();
@@ -34,19 +33,17 @@ const MySphere = ({
 
   useFrame(() => {
     myMesh.current.rotateOnAxis(earthAxisNormalized, speedRotation);
-    if (name && name === "sun") {
-    } else {
-      let currentTime = new Date();
-      let diffTime = (currentTime.getTime() - initTile.getTime()) * 2;
 
-      let angleDiff = angleOfRevPer10thOfSecond * (diffTime / 10);
+    let currentTime = new Date();
+    let diffTime = (currentTime.getTime() - initTile.getTime()) * 2;
 
-      let newX = Math.sin(angleDiff) * position[0];
-      let newZ = Math.cos(angleDiff) * position[2];
+    let angleDiff = angleOfRevPer10thOfSecond * (diffTime / 10);
 
-      myMesh.current.position.setX(newX);
-      myMesh.current.position.setZ(newZ);
-    }
+    let newX = Math.sin(angleDiff) * position[0];
+    let newZ = Math.cos(angleDiff) * position[2];
+
+    myMesh.current.position.setX(newX);
+    myMesh.current.position.setZ(newZ);
   });
 
   return (
@@ -57,11 +54,7 @@ const MySphere = ({
       receiveShadow={true}
     >
       <sphereBufferGeometry args={[0.7, 30, 30]} attach="geometry" />
-      {name === "sun" ? (
-        <meshBasicMaterial color="white" />
-      ) : (
-        <meshStandardMaterial map={planetTexture} />
-      )}
+      <meshStandardMaterial map={planetTexture} />
     </mesh>
   );
 };

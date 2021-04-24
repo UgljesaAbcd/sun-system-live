@@ -19,16 +19,18 @@ const MySphere = ({ position, tiltedAxis = 360, rotationPerHrs = 0 }) => {
   });
 
   return (
-    <mesh
-      ref={myMesh}
-      rotation={[radians, 0, 0]}
-      position={position}
-      receiveShadow={true}
-    >
-      <sphereBufferGeometry args={[0.7, 30, 30]} attach="geometry" />
+    <>
+      <mesh
+        ref={myMesh}
+        rotation={[radians, 0, 0]}
+        position={position}
+        receiveShadow={true}
+      >
+        <sphereBufferGeometry args={[0.7, 30, 30]} attach="geometry" />
 
-      <meshBasicMaterial color="white" />
-    </mesh>
+        <meshBasicMaterial color="white" />
+      </mesh>
+    </>
   );
 };
 

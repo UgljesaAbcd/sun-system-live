@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Switch } from "react-router-dom";
 import PublicRoute from "./PublicRoute";
 import SceneSpace from "../Scene/SceneSpace";
 import Comparison from "../Scene/Comparison";

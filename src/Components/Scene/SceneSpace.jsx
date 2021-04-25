@@ -12,6 +12,7 @@ import uran from "../../Components/Textures/uranus.jpg";
 import venus from "../../Components/Textures/venus.png";
 import neptune from "../../Components/Textures/neptune.jpg";
 import saturn from "../../Components/Textures/saturn.jpg";
+import EarthSphere from "../SolarObjects/EarthSphere";
 
 const Scene = () => {
   const timeSpeed = 36000;
@@ -35,9 +36,6 @@ const Scene = () => {
           picture={sun}
           tiltedAxis={7.25}
           rotationPerHrs={timeSpeed / 672}
-          orbitalSpeedKmPerHrs={0}
-          revolutionInDays={0}
-          initTile={initTile}
           timeSpeed={timeSpeed}
           name={"sun"}
         />
@@ -63,7 +61,8 @@ const Scene = () => {
           timeSpeed={timeSpeed}
           name={"venus"}
         />
-        <Sphere
+        <EarthSphere initTime={initTile} />
+        {/* <Sphere
           position={[14, 0, 14]}
           picture={earth}
           tiltedAxis={23.4}
@@ -73,7 +72,7 @@ const Scene = () => {
           initTile={initTile}
           timeSpeed={timeSpeed}
           name={"earth"}
-        />
+        /> */}
         <Sphere
           position={[22, 0, 22]}
           picture={mars}

@@ -222,7 +222,7 @@ export const neptuneObject = {
 
 export const moonObject = {
   tiltedAxis: 0,
-  rotationSpeedInHrs: 655.728,
+  rotationSpeedInHrs: 648,
   revolutionInDays: 27.3,
   radius: 1737.1,
   key: "moon",

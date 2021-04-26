@@ -118,6 +118,7 @@ export const sunObject = {
 
 export const mercuryObject = {
   tiltedAxis: 0.03,
+  orbitTilt: 7,
   rotationSpeedInHrs: 1407.5,
   revolutionInDays: 88,
   radius: 2493.7,
@@ -131,6 +132,7 @@ export const mercuryObject = {
 
 export const venusObject = {
   tiltedAxis: 177.3,
+  orbitTilt: 3.4,
   rotationSpeedInHrs: 5832,
   revolutionInDays: 224.7,
   radius: 6051.8,
@@ -144,6 +146,7 @@ export const venusObject = {
 
 export const earthObject = {
   tiltedAxis: 23.4,
+  orbitTilt: 0,
   rotationSpeedInHrs: 24,
   revolutionInDays: 365.3,
   radius: 6377.397,
@@ -157,6 +160,7 @@ export const earthObject = {
 
 export const marsObject = {
   tiltedAxis: 25.19,
+  orbitTilt: 1.85,
   rotationSpeedInHrs: 24.623,
   revolutionInDays: 656.98,
   radius: 3389.5,
@@ -170,6 +174,7 @@ export const marsObject = {
 
 export const jupiterObject = {
   tiltedAxis: 3.13,
+  orbitTilt: 1.3,
   rotationSpeedInHrs: 9.925,
   revolutionInDays: 4328.9,
   radius: 69911,
@@ -183,6 +188,7 @@ export const jupiterObject = {
 
 export const saturnObject = {
   tiltedAxis: 26.73,
+  orbitTilt: 3.4,
   rotationSpeedInHrs: 10.656,
   revolutionInDays: 10749.25,
   radius: 58232,
@@ -196,6 +202,7 @@ export const saturnObject = {
 
 export const uranObject = {
   tiltedAxis: 82.23,
+  orbitTilt: 0.77,
   rotationSpeedInHrs: 17.24,
   revolutionInDays: 30668,
   radius: 25362,
@@ -209,6 +216,7 @@ export const uranObject = {
 
 export const neptuneObject = {
   tiltedAxis: 28.32,
+  orbitTilt: 1.77,
   rotationSpeedInHrs: 16.11,
   revolutionInDays: 60150,
   radius: 24622,
@@ -222,6 +230,7 @@ export const neptuneObject = {
 
 export const moonObject = {
   tiltedAxis: 0,
+  orbitTilt: 5,
   rotationSpeedInHrs: 648,
   revolutionInDays: 27.3,
   radius: 1737.1,
@@ -235,6 +244,7 @@ export const moonObject = {
 
 export const plutoObject = {
   tiltedAxis: 122.5,
+  orbitTilt: 17,
   rotationSpeedInHrs: 153.6,
   revolutionInDays: 90560,
   radius: 1188.3,

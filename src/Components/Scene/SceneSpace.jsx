@@ -1,5 +1,6 @@
 import React from "react";
 import { Canvas } from "react-three-fiber";
+import { Vector3 } from "three";
 import SunSphere from "../SolarObjects/SunSphere";
 import Sphere from "../SolarObjects/Sphere";
 import { OrbitControls } from "@react-three/drei";
@@ -17,6 +18,10 @@ import EarthSphere from "../SolarObjects/EarthSphere";
 const Scene = () => {
   const timeSpeed = 36000;
   const initTile = new Date();
+  const xArrow = new Vector3(1, 0, 0);
+  const yArrow = new Vector3(0, 1, 0);
+  const zArrow = new Vector3(0, 0, 1);
+  const xyzOrigin = new Vector3(0, 0, 0);
   return (
     <div className="App">
       <Canvas>
@@ -31,6 +36,9 @@ const Scene = () => {
           shadow
           physicallyCorrectLights
         />
+        <arrowHelper args={[xArrow]} />
+        <arrowHelper args={[yArrow]} />
+        <arrowHelper args={[zArrow, xyzOrigin, 3]} />
         <SunSphere
           position={[0, 0, 0]}
           picture={sun}

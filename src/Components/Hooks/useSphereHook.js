@@ -8,6 +8,7 @@ const useSphereHook = (
   picture, // picture for planet surface
   timeSpeed = 1, // speed of time used for speed up animation
   tiltedAxis = 360, // tilt of axis regarding to orbit
+  orbitTilt = 0,
   hrsForRotation = 0, // rotation speed of planet in hours
   revolutionInDays = 1,
   initTime,
@@ -29,6 +30,7 @@ const useSphereHook = (
 
   // tilt of planet axis
   const radians = (tiltedAxis * Math.PI) / 180;
+  const orbitalTiltInRadians = ((orbitTilt + 180) * Math.PI) / 180;
 
   // speed of rotation of planet in 10th part of second
   const andleRotationPms = (360 / (hrsForRotation * 3600000)) * timeSpeed;
@@ -51,20 +53,26 @@ const useSphereHook = (
     // let rotationDiff = speedRotation * diffTime;
     myMesh.current.rotateOnAxis(earthAxisNormalized, speedRotation * 15);
 
-    let angleDiff = angleOfRevPer10thOfSecond * diffTime;
+    let revOrbAngleDiff = angleOfRevPer10thOfSecond * diffTime;
 
-    let newX = parentPosition[0] + Math.sin(angleDiff) * relativePosition[0];
-    let newZ = parentPosition[2] + Math.cos(angleDiff) * relativePosition[2];
+    let relativeXDiff = Math.sin(revOrbAngleDiff) * relativePosition[0];
+    let relativeZDiff = Math.cos(revOrbAngleDiff) * relativePosition[2];
+
+    let newX = parentPosition[0] + relativeXDiff;
+    let tempZ = Math.cos(orbitalTiltInRadians) + relativeZDiff;
+    let tempY = Math.sin(orbitalTiltInRadians) * relativeZDiff;
+    let newY = parentPosition[1] + tempY;
+    let newZ = parentPosition[2] + tempZ;
 
     currentPosition[0] = newX;
+    currentPosition[1] = newY;
     currentPosition[2] = newZ;
 
     myMesh.current.position.setX(newX);
+    myMesh.current.position.setY(newY);
     myMesh.current.position.setZ(newZ);
   });
 
-  // args={radius} are:
-  // radius: Float, widthSegments: Integer, heightSegments: Integer
   return [
     <mesh
       ref={myMesh}

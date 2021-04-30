@@ -18,7 +18,7 @@ import NeptuneSphere from "../SolarObjects/NeptuneSphere";
 
 const Scene = () => {
   const [orbitVisible, setOrbitVisible] = useState(true);
-  const [showNames, setShowNames] = useState(false);
+  const [showNames, setShowNames] = useState(true);
   const [initTime] = useState(new Date());
   const timeSpeed = 36000;
   const xArrow = new Vector3(1, 0, 0);
@@ -39,11 +39,11 @@ const Scene = () => {
             height: "50px",
             top: "calc(-40vh)",
             left: "calc(-10vh)",
-            width: "100px"
+            width: "370px"
           }}
         >
           <div>
-            <Menu borderless className={styles.gridStyle}>
+            <Menu borderless className={styles.gridStyleSpace}>
               <Menu.Item>
                 <Checkbox
                   checked={orbitVisible}

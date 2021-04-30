@@ -4,7 +4,8 @@ import { venusObject } from "../Scene/Constants";
 const VenusSphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
-  initTime
+  initTime,
+  orbitVisible
 }) => {
   const [venusMash, venusPosition] = useSphereHook(
     [10, 0, 10],
@@ -13,6 +14,7 @@ const VenusSphere = ({
     86400, // speed of time used for speed up animation
     venusObject.tiltedAxis, // tilt of axis regarding to orbit
     venusObject.orbitTilt,
+    orbitVisible,
     venusObject.rotationSpeedInHrs, // rotation speed of planet in hours
     venusObject.revolutionInDays,
     initTime

@@ -9,12 +9,13 @@ const useSphereHook = (
   timeSpeed = 1, // speed of time used for speed up animation
   tiltedAxis = 360, // tilt of axis regarding to orbit
   orbitTilt = 0, // orbit inclination
+  orbitVisible = false, // state for exposing orbit ring
   hrsForRotation = 0, // rotation speed of planet in hours
   revolutionInDays = 1,
   initTime, // initial time initiated when component is open and used for time diff
   radius = 0.7, // radius of planet
   widthSegments = 30, // one segment of sphere dim
-  heightSegments = 30 // one segment of sphere dim
+  heightSegments = 30 // one segment of sphere dim,
 ) => {
   // ref for mesh (planet)
   const planetMesh = useRef();
@@ -69,9 +70,11 @@ const useSphereHook = (
     currentPosition[1] = newY;
     currentPosition[2] = newZ;
 
-    orbitMesh.current.position.setX(parentPosition[0]);
-    orbitMesh.current.position.setY(parentPosition[1]);
-    orbitMesh.current.position.setZ(parentPosition[2]);
+    if (orbitMesh && orbitMesh.current && orbitMesh.current.position) {
+      orbitMesh.current.position.setX(parentPosition[0]);
+      orbitMesh.current.position.setY(parentPosition[1]);
+      orbitMesh.current.position.setZ(parentPosition[2]);
+    }
 
     planetMesh.current.position.setX(newX);
     planetMesh.current.position.setY(newY);
@@ -96,19 +99,25 @@ const useSphereHook = (
         />
         <meshStandardMaterial map={planetTexture} />
       </mesh>
-      <mesh
-        ref={orbitMesh}
-        rotation={[orbitInclimentInRad, 0, 0]}
-        position={parentPosition}
-      >
-        <line>
-          <ringBufferGeometry
-            attach="geometry"
-            args={[relativePosition[0], relativePosition[2] + 0.0001, 360]}
-          />
-          <lineBasicMaterial attach="material" args={["#9c88ff", 1]} />
-        </line>
-      </mesh>
+      {orbitVisible && (
+        <mesh
+          ref={orbitMesh}
+          rotation={[orbitInclimentInRad, 0, 0]}
+          position={parentPosition}
+        >
+          <line>
+            <ringBufferGeometry
+              attach="geometry"
+              args={[relativePosition[0], relativePosition[2] + 0.0001, 360]}
+            />
+            <lineBasicMaterial
+              attach="material"
+              color="#262626"
+              linewidth={0.1}
+            />
+          </line>
+        </mesh>
+      )}
     </group>,
     currentPosition
   ];

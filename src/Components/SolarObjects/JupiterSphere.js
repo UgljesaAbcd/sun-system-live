@@ -4,7 +4,8 @@ import { jupiterObject } from "../Scene/Constants";
 const JupiterSphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
-  initTime
+  initTime,
+  orbitVisible
 }) => {
   const [jupiterMash, jupiterPosition] = useSphereHook(
     [77, 0, 77],
@@ -13,6 +14,7 @@ const JupiterSphere = ({
     86400, // speed of time used for speed up animation
     jupiterObject.tiltedAxis, // tilt of axis regarding to orbit
     jupiterObject.orbitTilt,
+    orbitVisible,
     jupiterObject.rotationSpeedInHrs, // rotation speed of planet in hours
     jupiterObject.revolutionInDays,
     initTime

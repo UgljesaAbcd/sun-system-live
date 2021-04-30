@@ -5,9 +5,12 @@ const VenusSphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
   initTime,
-  orbitVisible
+  orbitVisible,
+  showNames = false
 }) => {
-  const [venusMash, venusPosition] = useSphereHook(
+  const [venusMash] = useSphereHook(
+    showNames,
+    venusObject.text,
     [10, 0, 10],
     parentPosition,
     venusObject.picture,

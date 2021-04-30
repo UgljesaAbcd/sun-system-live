@@ -1,8 +1,11 @@
 import React, { useRef } from "react";
 import { TextureLoader, Vector3 } from "three";
 import { useFrame } from "react-three-fiber";
+import { Html } from "@react-three/drei";
 
 const useSphereHook = (
+  showNames = false,
+  planetName,
   relativePosition = [0, 0, 0], // position relative to parent object
   parentPosition = [0, 0, 0], //current position of parent object
   picture, // picture for planet surface
@@ -17,9 +20,10 @@ const useSphereHook = (
   widthSegments = 30, // one segment of sphere dim
   heightSegments = 30 // one segment of sphere dim,
 ) => {
-  // ref for mesh (planet)
+  // ref for mesh (planet and orbit)
   const planetMesh = useRef();
   const orbitMesh = useRef();
+
   // loader that wil load texture for mesh (planet)
   const loader = new TextureLoader();
   const planetTexture = loader.load(picture);
@@ -93,6 +97,12 @@ const useSphereHook = (
         ]}
         receiveShadow={true}
       >
+        {showNames && (
+          <Html>
+            <p style={{ color: "white", offsetTop: "-50px" }}>{planetName}</p>
+          </Html>
+        )}
+
         <sphereBufferGeometry
           args={[radius, widthSegments, heightSegments]}
           attach="geometry"

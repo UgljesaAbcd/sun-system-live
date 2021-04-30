@@ -5,9 +5,12 @@ const UranSphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
   initTime,
-  orbitVisible
+  orbitVisible,
+  showNames = false
 }) => {
-  const [uranMash, uranPosition] = useSphereHook(
+  const [uranMash] = useSphereHook(
+    showNames,
+    uranObject.text,
     [287, 0, 287],
     parentPosition,
     uranObject.picture,

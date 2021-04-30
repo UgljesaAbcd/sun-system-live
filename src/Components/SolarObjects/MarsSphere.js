@@ -5,9 +5,12 @@ const MarsSphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
   initTime,
-  orbitVisible
+  orbitVisible,
+  showNames = false
 }) => {
-  const [marsMash, marsPosition] = useSphereHook(
+  const [marsMash] = useSphereHook(
+    showNames,
+    marsObject.text,
     [22, 0, 22],
     parentPosition,
     marsObject.picture,

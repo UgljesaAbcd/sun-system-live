@@ -5,9 +5,12 @@ const SaturnSphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
   initTime,
-  orbitVisible
+  orbitVisible,
+  showNames = false
 }) => {
-  const [saturnMash, saturnPosition] = useSphereHook(
+  const [saturnMash] = useSphereHook(
+    showNames,
+    saturnObject.text,
     [142, 0, 142],
     parentPosition,
     saturnObject.picture,

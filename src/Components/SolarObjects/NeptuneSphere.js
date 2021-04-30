@@ -5,9 +5,12 @@ const NeptuneSphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
   initTime,
-  orbitVisible
+  orbitVisible,
+  showNames = false
 }) => {
-  const [neptuneMash, neptunePosition] = useSphereHook(
+  const [neptuneMash] = useSphereHook(
+    showNames,
+    neptuneObject.text,
     [449, 0, 449],
     parentPosition,
     neptuneObject.picture,

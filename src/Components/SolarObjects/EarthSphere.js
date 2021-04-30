@@ -5,9 +5,12 @@ const EarthSphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
   initTime,
-  orbitVisible
+  orbitVisible,
+  showNames = false
 }) => {
   const [earthMash, earthPosition] = useSphereHook(
+    showNames,
+    earthObject.text,
     [14, 0, 14],
     parentPosition,
     earthObject.picture,
@@ -21,6 +24,8 @@ const EarthSphere = ({
   );
 
   const [moonMash, moomPosition] = useSphereHook(
+    showNames,
+    moonObject.text,
     [3, 0, 3],
     earthPosition ? earthPosition : [14, 0, 14],
     moonObject.picture,

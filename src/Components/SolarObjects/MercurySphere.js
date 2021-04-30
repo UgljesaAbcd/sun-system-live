@@ -5,9 +5,12 @@ const MercurySphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
   initTime,
-  orbitVisible
+  orbitVisible,
+  showNames = false
 }) => {
-  const [mercuryMash, mercuryPosition] = useSphereHook(
+  const [mercuryMash] = useSphereHook(
+    showNames,
+    mercuryObject.text,
     [5, 0, 5],
     parentPosition,
     mercuryObject.picture,

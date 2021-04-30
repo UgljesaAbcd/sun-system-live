@@ -5,9 +5,12 @@ const JupiterSphere = ({
   timeSpeed = 1,
   parentPosition = [0, 0, 0],
   initTime,
-  orbitVisible
+  orbitVisible,
+  showNames = false
 }) => {
-  const [jupiterMash, jupiterPosition] = useSphereHook(
+  const [jupiterMash] = useSphereHook(
+    showNames,
+    jupiterObject.text,
     [77, 0, 77],
     parentPosition,
     jupiterObject.picture,

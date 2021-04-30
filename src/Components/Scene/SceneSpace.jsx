@@ -18,12 +18,19 @@ import NeptuneSphere from "../SolarObjects/NeptuneSphere";
 
 const Scene = () => {
   const [orbitVisible, setOrbitVisible] = useState(true);
+  const [showNames, setShowNames] = useState(false);
   const [initTime] = useState(new Date());
   const timeSpeed = 36000;
   const xArrow = new Vector3(1, 0, 0);
   const yArrow = new Vector3(0, 1, 0);
   const zArrow = new Vector3(0, 0, 1);
   const xyzOrigin = new Vector3(0, 0, 0);
+
+  const providedProps = {
+    initTime,
+    orbitVisible,
+    showNames
+  };
   return (
     <div className="App">
       <Canvas>
@@ -37,12 +44,22 @@ const Scene = () => {
         >
           <div>
             <Menu borderless className={styles.gridStyle}>
-              <Checkbox
-                checked={orbitVisible}
-                onClick={() => setOrbitVisible(!orbitVisible)}
-                label="Show orbits"
-                className={styles.show_orbits_cb}
-              />
+              <Menu.Item>
+                <Checkbox
+                  checked={orbitVisible}
+                  onClick={() => setOrbitVisible(!orbitVisible)}
+                  label="Show orbits"
+                  className={styles.show_orbits_cb}
+                />
+              </Menu.Item>
+              <Menu.Item>
+                <Checkbox
+                  checked={showNames}
+                  onClick={() => setShowNames(!showNames)}
+                  label="Show planet names"
+                  className={styles.show_orbits_cb}
+                />
+              </Menu.Item>
             </Menu>
           </div>
         </Html>
@@ -68,14 +85,14 @@ const Scene = () => {
           timeSpeed={timeSpeed}
           name={"sun"}
         />
-        <MercurySphere initTime={initTime} orbitVisible={orbitVisible} />
-        <VenusSphere initTime={initTime} orbitVisible={orbitVisible} />
-        <EarthSphere initTime={initTime} orbitVisible={orbitVisible} />
-        <MarsSphere initTime={initTime} orbitVisible={orbitVisible} />
-        <JupiterSphere initTime={initTime} orbitVisible={orbitVisible} />
-        <SaturnSphere initTime={initTime} orbitVisible={orbitVisible} />
-        <UranSphere initTime={initTime} orbitVisible={orbitVisible} />
-        <NeptuneSphere initTime={initTime} orbitVisible={orbitVisible} />
+        <MercurySphere {...providedProps} />
+        <VenusSphere {...providedProps} />
+        <EarthSphere {...providedProps} />
+        <MarsSphere {...providedProps} />
+        <JupiterSphere {...providedProps} />
+        <SaturnSphere {...providedProps} />
+        <UranSphere {...providedProps} />
+        <NeptuneSphere {...providedProps} />
       </Canvas>
     </div>
   );

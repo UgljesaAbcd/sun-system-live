@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Canvas } from "react-three-fiber";
 import { Vector3 } from "three";
 import SunSphere from "../SolarObjects/SunSphere";
-import { OrbitControls, Html } from "@react-three/drei";
+import { OrbitControls, Html, Stars } from "@react-three/drei";
+import Camera from "../Hooks/Camera";
 import Menu from "semantic-ui-react/dist/commonjs/collections/Menu/Menu";
 import Checkbox from "semantic-ui-react/dist/commonjs/modules/Checkbox/Checkbox";
 import styles from "./style/Scene.module.scss";
@@ -63,7 +64,8 @@ const Scene = () => {
             </Menu>
           </div>
         </Html>
-        <OrbitControls />
+        <OrbitControls maxDistance={500} minDistance={3} />
+        <Camera />
         <pointLight intensity={1} color="white" position={[0, 0, 0]} />
         <ambientLight
           dispose={true}
@@ -93,6 +95,14 @@ const Scene = () => {
         <SaturnSphere {...providedProps} />
         <UranSphere {...providedProps} />
         <NeptuneSphere {...providedProps} />
+        <Stars
+          radius={460} // Radius of the inner sphere (default=100)
+          depth={50} // Depth of area where stars should fit (default=50)
+          count={2000} // Amount of stars (default=5000)
+          factor={4} // Size factor (default=4)
+          saturation={0.5} // Saturation 0-1 (default=0)
+          fade
+        />
       </Canvas>
     </div>
   );

@@ -19,7 +19,7 @@ const EarthSphere = ({
   );
 
   const [moonMash, moomPosition] = useSphereHook(
-    [5, 0, 5],
+    [3, 0, 3],
     earthPosition ? earthPosition : [14, 0, 14],
     moonObject.picture,
     86400, // speed of time used for speed up animation

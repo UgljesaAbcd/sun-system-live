@@ -35,37 +35,13 @@ const Scene = () => {
   return (
     <div className="App">
       <Canvas>
-        <Html
-          style={{
-            height: "50px",
-            top: "calc(-40vh)",
-            left: "calc(-10vh)",
-            width: "370px"
-          }}
-        >
-          <div>
-            <Menu borderless className={styles.gridStyleSpace}>
-              <Menu.Item>
-                <Checkbox
-                  checked={orbitVisible}
-                  onClick={() => setOrbitVisible(!orbitVisible)}
-                  label="Show orbits"
-                  className={styles.show_orbits_cb}
-                />
-              </Menu.Item>
-              <Menu.Item>
-                <Checkbox
-                  checked={showNames}
-                  onClick={() => setShowNames(!showNames)}
-                  label="Show planet names"
-                  className={styles.show_orbits_cb}
-                />
-              </Menu.Item>
-            </Menu>
-          </div>
-        </Html>
         <OrbitControls maxDistance={500} minDistance={3} />
-        <Camera />
+        <Camera
+          orbitVisible={orbitVisible}
+          setOrbitVisible={setOrbitVisible}
+          showNames={showNames}
+          setShowNames={setShowNames}
+        />
         <pointLight intensity={1} color="white" position={[0, 0, 0]} />
         <ambientLight
           dispose={true}

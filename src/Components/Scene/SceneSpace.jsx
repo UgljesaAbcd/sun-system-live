@@ -32,16 +32,12 @@ const Scene = () => {
     orbitVisible,
     showNames
   };
+
   return (
     <div className="App">
       <Canvas>
         <OrbitControls maxDistance={500} minDistance={3} />
-        <Camera
-          orbitVisible={orbitVisible}
-          setOrbitVisible={setOrbitVisible}
-          showNames={showNames}
-          setShowNames={setShowNames}
-        />
+        <Camera></Camera>
         <pointLight intensity={1} color="white" position={[0, 0, 0]} />
         <ambientLight
           dispose={true}
@@ -79,6 +75,41 @@ const Scene = () => {
           saturation={0.5} // Saturation 0-1 (default=0)
           fade
         />
+      </Canvas>
+      <Canvas
+        style={{
+          position: "absolute",
+          top: "0",
+          height: "150px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Html
+          style={{
+            left: "calc(-10vw)"
+          }}
+        >
+          <Menu borderless className={styles.gridStyleSpace}>
+            <Menu.Item>
+              <Checkbox
+                checked={orbitVisible}
+                onClick={() => setOrbitVisible(!orbitVisible)}
+                label="Show orbits"
+                className={styles.show_orbits_cb}
+              />
+            </Menu.Item>
+            <Menu.Item>
+              <Checkbox
+                checked={showNames}
+                onClick={() => setShowNames(!showNames)}
+                label="Show planet names"
+                className={styles.show_orbits_cb}
+              />
+            </Menu.Item>
+          </Menu>
+        </Html>
       </Canvas>
     </div>
   );

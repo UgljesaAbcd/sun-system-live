@@ -37,7 +37,7 @@ const Scene = () => {
     <div className="App">
       <Canvas>
         <OrbitControls maxDistance={500} minDistance={3} />
-        <Camera></Camera>
+        <Camera />
         <pointLight intensity={1} color="white" position={[0, 0, 0]} />
         <ambientLight
           dispose={true}

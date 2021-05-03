@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Canvas } from "react-three-fiber";
+import Camera from "../Hooks/Camera";
 import Sphere from "../SolarObjects/SphereComparison";
 import { OrbitControls, Stars, Html } from "@react-three/drei";
 import Menu from "semantic-ui-react/dist/commonjs/collections/Menu/Menu";
@@ -49,38 +50,9 @@ const Scene = () => {
   return (
     <div className="App">
       <Canvas>
-        <Html
-          style={{ height: "50px", top: "calc(-40vh)", left: "calc(-20vh)" }}
-        >
-          <div>
-            <Menu borderless className={styles.gridStyle}>
-              <Dropdown
-                basic
-                inverted
-                name="left"
-                text={currentLeftValue.text}
-                value={currentLeftValue.value}
-                onChange={handleDropdownChange}
-                selection
-                options={planetObjectList}
-              />
-              <Dropdown
-                basic
-                inverted
-                name="right"
-                text={currentRightValue.text}
-                value={currentRightValue.value}
-                onChange={handleDropdownChange}
-                selection
-                options={planetObjectList}
-              />
-            </Menu>
-          </div>
-        </Html>
-
-        <OrbitControls />
-        <ambientLight intensity={0.5} />
-        <spotLight position={[200, 200, 200]} angle={0.3} />
+        <Camera position={[0, 0, 14]} />
+        <OrbitControls maxDistance={250} minDistance={10} />
+        <ambientLight intensity={1} />
         {leftActiveObj}
         {rightActiveObj}
         <Stars
@@ -91,6 +63,45 @@ const Scene = () => {
           saturation={0} // Saturation 0-1 (default=0)
           fade
         />
+      </Canvas>
+      <Canvas
+        style={{
+          position: "absolute",
+          top: "0",
+          height: "150px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Html
+          style={{
+            left: "calc(-10vw)"
+          }}
+        >
+          <Menu borderless className={styles.gridStyle}>
+            <Dropdown
+              basic
+              inverted={"true"}
+              name="left"
+              text={currentLeftValue.text}
+              value={currentLeftValue.value}
+              onChange={handleDropdownChange}
+              selection
+              options={planetObjectList}
+            />
+            <Dropdown
+              basic
+              inverted={"true"}
+              name="right"
+              text={currentRightValue.text}
+              value={currentRightValue.value}
+              onChange={handleDropdownChange}
+              selection
+              options={planetObjectList}
+            />
+          </Menu>
+        </Html>
       </Canvas>
     </div>
   );

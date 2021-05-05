@@ -48,8 +48,8 @@ const Scene = () => {
           shadow
           physicallyCorrectLights
         />
-        <arrowHelper args={[xArrow]} />
-        <arrowHelper args={[yArrow]} />
+        <arrowHelper args={[xArrow, xyzOrigin, 3]} />
+        <arrowHelper args={[yArrow, xyzOrigin, 2]} />
         <arrowHelper args={[zArrow, xyzOrigin, 3]} />
         <SunSphere
           position={[0, 0, 0]}

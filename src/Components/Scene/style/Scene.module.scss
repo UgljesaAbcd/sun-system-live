@@ -25,3 +25,23 @@
     width: 150px;
   }
 }
+.main_html_element {
+  position: absolute !important;
+  height: 150px !important;
+  top: 70px !important;
+  left: 45vw !important;
+}
+.grid_menu {
+  background: none !important;
+  box-shadow: none !important;
+  div {
+    background: none !important;
+    color: white !important;
+  }
+  span {
+    color: white !important;
+  }
+}
+.dd_in_html {
+  position: relative !important;
+}

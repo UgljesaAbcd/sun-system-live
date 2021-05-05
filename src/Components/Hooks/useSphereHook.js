@@ -56,33 +56,34 @@ const useSphereHook = (
     let currentTime = new Date();
     let diffTime = currentTime.getTime() - initTime.getTime();
 
-    // let rotationDiff = speedRotation * diffTime;
-    planetMesh.current.rotateOnAxis(earthAxisNormalized, speedRotation * 15);
+    if (planetMesh && planetMesh.current && planetMesh.current.position) {
+      planetMesh.current.rotateOnAxis(earthAxisNormalized, speedRotation * 15);
 
-    let revOrbAngleDiff = angleOfRevPer10thOfSecond * diffTime;
+      let revOrbAngleDiff = angleOfRevPer10thOfSecond * diffTime;
 
-    let relativeXDiff = Math.cos(revOrbAngleDiff) * relativePosition[0];
-    let relativeZDiff = Math.sin(revOrbAngleDiff) * relativePosition[2];
+      let relativeXDiff = Math.cos(revOrbAngleDiff) * relativePosition[0];
+      let relativeZDiff = Math.sin(revOrbAngleDiff) * relativePosition[2];
 
-    let newX = parentPosition[0] + relativeXDiff;
-    let tempZ = Math.cos(orbitalTiltInRadians) * relativeZDiff;
-    let tempY = Math.sin(orbitalTiltInRadians) * relativeZDiff;
-    let newY = parentPosition[1] + tempY;
-    let newZ = parentPosition[2] + tempZ;
+      let newX = parentPosition[0] + relativeXDiff;
+      let tempZ = Math.cos(orbitalTiltInRadians) * relativeZDiff;
+      let tempY = Math.sin(orbitalTiltInRadians) * relativeZDiff;
+      let newY = parentPosition[1] + tempY;
+      let newZ = parentPosition[2] + tempZ;
 
-    currentPosition[0] = newX;
-    currentPosition[1] = newY;
-    currentPosition[2] = newZ;
+      currentPosition[0] = newX;
+      currentPosition[1] = newY;
+      currentPosition[2] = newZ;
 
-    if (orbitMesh && orbitMesh.current && orbitMesh.current.position) {
-      orbitMesh.current.position.setX(parentPosition[0]);
-      orbitMesh.current.position.setY(parentPosition[1]);
-      orbitMesh.current.position.setZ(parentPosition[2]);
+      if (orbitMesh && orbitMesh.current && orbitMesh.current.position) {
+        orbitMesh.current.position.setX(parentPosition[0]);
+        orbitMesh.current.position.setY(parentPosition[1]);
+        orbitMesh.current.position.setZ(parentPosition[2]);
+      }
+
+      planetMesh.current.position.setX(newX);
+      planetMesh.current.position.setY(newY);
+      planetMesh.current.position.setZ(newZ);
     }
-
-    planetMesh.current.position.setX(newX);
-    planetMesh.current.position.setY(newY);
-    planetMesh.current.position.setZ(newZ);
   });
 
   return [

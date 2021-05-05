@@ -61,6 +61,17 @@ const MenuBar = props => {
             >
               <Button content="Comparison" basic inverted />
             </Menu.Item>
+            <Menu.Item
+              name="Planets"
+              to="/planets-with-satelites"
+              as={NavLink}
+              activeClassName={styles.activeMenuItem}
+              exact
+              active={activeItem === "Planets"}
+              onClick={handleItemClick}
+            >
+              <Button content="Planets" basic inverted />
+            </Menu.Item>
           </Menu.Menu>
         </Menu>
       </Grid>

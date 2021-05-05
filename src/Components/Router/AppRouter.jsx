@@ -3,12 +3,18 @@ import { HashRouter as Router, Switch } from "react-router-dom";
 import PublicRoute from "./PublicRoute";
 import SceneSpace from "../Scene/SceneSpace";
 import Comparison from "../Scene/Comparison";
+import PlanetsWithSatelites from "../Scene/PlanetsWithSatelites";
 
 function AppRouter() {
   return (
     <Router>
       <Switch>
         <PublicRoute exact path="/comparison" component={Comparison} />
+        <PublicRoute
+          exact
+          path="/planets-with-satelites"
+          component={PlanetsWithSatelites}
+        />
         <PublicRoute exact path="*" component={SceneSpace} />
       </Switch>
     </Router>

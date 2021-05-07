@@ -32,7 +32,7 @@ const Scene = () => {
     <div className="App">
       <Canvas>
         <Camera position={[0, 10, 30]} />
-        <OrbitControls maxDistance={300} minDistance={10} />
+        <OrbitControls maxDistance={400} minDistance={10} />
         <ambientLight intensity={1} />
         {currentLeftValue.value === "earth" && (
           <EarthSphere {...providedProps} />

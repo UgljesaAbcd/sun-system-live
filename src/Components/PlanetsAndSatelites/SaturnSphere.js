@@ -8,7 +8,7 @@ const SaturnSphere = ({
   orbitVisible,
   showNames = false
 }) => {
-  const [saturnMash] = useSphereHook(
+  const [saturnMash, saturnPosition] = useSphereHook(
     showNames,
     saturnObject.text,
     [142, 0, 142],

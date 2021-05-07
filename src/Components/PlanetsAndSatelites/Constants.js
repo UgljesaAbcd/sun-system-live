@@ -12,6 +12,7 @@ import moon from "../../Components/Textures/moon2.jpg";
 import io from "../../Components/Textures/io.jpg";
 import europe from "../../Components/Textures/europe.jpg";
 import ganymede from "../../Components/Textures/ganymede.jpg";
+import callisto from "../../Components/Textures/callisto.jpg";
 
 export const sunObject = {
   tiltedAxis: 7.25,
@@ -110,6 +111,13 @@ export const saturnObject = {
   type: "planet"
 };
 
+export const saturnRing = {
+  innerRing: 120536,
+  outerRing: 300000,
+  tiltedAxis: 26.73,
+  rotationSpeedInHrs: 10.656
+};
+
 export const uranObject = {
   tiltedAxis: 82.23,
   orbitTilt: 0.77,
@@ -205,6 +213,20 @@ export const ganymedeObject = {
   text: "Ganymede",
   picture: ganymede,
   distanceToPlanet: 1070400,
+  type: "satelite"
+};
+
+export const callistoObject = {
+  tiltedAxis: 0,
+  orbitTilt: 0.192,
+  rotationSpeedInHrs: 400.536,
+  revolutionInDays: 16.689,
+  radius: 2410.3,
+  key: "callisto",
+  value: "callisto",
+  text: "Callisto",
+  picture: callisto,
+  distanceToPlanet: 1882700,
   type: "satelite"
 };
 

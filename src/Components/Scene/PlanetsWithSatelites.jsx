@@ -4,6 +4,7 @@ import Camera from "../Hooks/Camera";
 import { OrbitControls, Stars, Html } from "@react-three/drei";
 import EarthSphere from "../PlanetsAndSatelites/EarthSphere";
 import JupiterSphere from "../PlanetsAndSatelites/JupiterSphere";
+import SaturnSphere from "../PlanetsAndSatelites/SaturnSphere";
 import Menu from "semantic-ui-react/dist/commonjs/collections/Menu/Menu";
 import Dropdown from "semantic-ui-react/dist/commonjs/modules/Dropdown";
 import { planetObjectList } from "./Constants";
@@ -39,6 +40,9 @@ const Scene = () => {
         )}
         {currentLeftValue.value === "jupiter" && (
           <JupiterSphere {...providedProps} />
+        )}
+        {currentLeftValue.value === "saturn" && (
+          <SaturnSphere {...providedProps} />
         )}
 
         <Stars

@@ -1,4 +1,4 @@
-import useSphereHook from "../Hooks/useSphereHook";
+import useSphereHook from "../Hooks/useSphereSaturnHook";
 import { saturnObject } from "../Scene/Constants";
 
 const SaturnSphere = ({

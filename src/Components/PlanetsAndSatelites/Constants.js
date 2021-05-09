@@ -112,8 +112,8 @@ export const saturnObject = {
 };
 
 export const saturnRing = {
-  innerRing: 120536,
-  outerRing: 300000,
+  innerRing: 74565,
+  outerRing: 136780,
   tiltedAxis: 26.73,
   rotationSpeedInHrs: 10.656
 };

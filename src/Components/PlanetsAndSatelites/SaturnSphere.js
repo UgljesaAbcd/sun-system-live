@@ -1,4 +1,4 @@
-import useSphereHook from "../Hooks/useSphereHook";
+import useSphereSaturnHook from "../Hooks/useSphereSaturnHook";
 import { saturnObject } from "../Scene/Constants";
 
 const SaturnSphere = ({
@@ -8,19 +8,20 @@ const SaturnSphere = ({
   orbitVisible,
   showNames = false
 }) => {
-  const [saturnMash, saturnPosition] = useSphereHook(
+  const [saturnMash] = useSphereSaturnHook(
     showNames,
     saturnObject.text,
-    [142, 0, 142],
+    [0, 0, 0],
     parentPosition,
     saturnObject.picture,
-    86400, // speed of time used for speed up animation
+    86400 / 4, // speed of time used for speed up animation
     saturnObject.tiltedAxis, // tilt of axis regarding to orbit
     saturnObject.orbitTilt,
     orbitVisible,
     saturnObject.rotationSpeedInHrs, // rotation speed of planet in hours
     saturnObject.revolutionInDays,
-    initTime
+    initTime,
+    saturnObject.radius / 5000
   );
 
   return saturnMash;

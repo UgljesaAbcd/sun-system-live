@@ -135,7 +135,12 @@ const useSphereSaturnHook = (
         ]}
       >
         <ringBufferGeometry args={[radius * 1.2804, radius * 2.3488, 36]} />
-        <meshStandardMaterial map={ringsLoader} side={DoubleSide} />
+        <meshLambertMaterial
+          map={ringsLoader}
+          side={DoubleSide}
+          transparent={true}
+          opacity={1.2}
+        />
       </mesh>
       {orbitVisible && (
         <mesh

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Canvas } from "react-three-fiber";
 import Camera from "../Hooks/Camera";
 import Sphere from "../SolarObjects/SphereComparison";
-import { OrbitControls, Stars, Html } from "@react-three/drei";
+import { OrbitControls, Stars } from "@react-three/drei";
 import Menu from "semantic-ui-react/dist/commonjs/collections/Menu/Menu";
 import Dropdown from "semantic-ui-react/dist/commonjs/modules/Dropdown";
 import { planetObjectList } from "./Constants";
@@ -64,45 +64,31 @@ const Scene = () => {
           fade
         />
       </Canvas>
-      <Canvas
-        style={{
-          position: "absolute",
-          top: "0",
-          height: "150px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-      >
-        <Html
-          style={{
-            left: "calc(-10vw)"
-          }}
-        >
-          <Menu borderless className={styles.gridStyle}>
-            <Dropdown
-              basic
-              inverted={"true"}
-              name="left"
-              text={currentLeftValue.text}
-              value={currentLeftValue.value}
-              onChange={handleDropdownChange}
-              selection
-              options={planetObjectList}
-            />
-            <Dropdown
-              basic
-              inverted={"true"}
-              name="right"
-              text={currentRightValue.text}
-              value={currentRightValue.value}
-              onChange={handleDropdownChange}
-              selection
-              options={planetObjectList}
-            />
-          </Menu>
-        </Html>
-      </Canvas>
+
+      <div className={styles.main_html_element}>
+        <Menu borderless className={styles.grid_menu}>
+          <Dropdown
+            basic
+            inverted={"true"}
+            name="left"
+            text={currentLeftValue.text}
+            value={currentLeftValue.value}
+            onChange={handleDropdownChange}
+            selection
+            options={planetObjectList}
+          />
+          <Dropdown
+            basic
+            inverted={"true"}
+            name="right"
+            text={currentRightValue.text}
+            value={currentRightValue.value}
+            onChange={handleDropdownChange}
+            selection
+            options={planetObjectList}
+          />
+        </Menu>
+      </div>
     </div>
   );
 };

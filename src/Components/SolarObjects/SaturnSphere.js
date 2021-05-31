@@ -20,7 +20,9 @@ const SaturnSphere = ({
     orbitVisible,
     saturnObject.rotationSpeedInHrs, // rotation speed of planet in hours
     saturnObject.revolutionInDays,
-    initTime
+    initTime,
+    undefined,
+    saturnObject.rings
   );
 
   return saturnMash;

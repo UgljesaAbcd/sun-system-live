@@ -97,6 +97,7 @@ const useSphereHook = (
           parentPosition[2] + relativePosition[2]
         ]}
         receiveShadow={true}
+        castShadow={true}
       >
         {showNames && (
           <Html>

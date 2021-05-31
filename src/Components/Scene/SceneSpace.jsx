@@ -38,7 +38,12 @@ const Scene = () => {
       <Canvas>
         <OrbitControls maxDistance={500} minDistance={3} />
         <Camera />
-        <pointLight intensity={1} color="white" position={[0, 0, 0]} />
+        <pointLight
+          intensity={1}
+          color="white"
+          position={[0, 0, 0]}
+          // castShadow={true}
+        />
         <ambientLight
           dispose={true}
           intensity={0.03}

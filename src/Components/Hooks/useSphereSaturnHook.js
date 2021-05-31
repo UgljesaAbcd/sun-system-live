@@ -17,6 +17,7 @@ const useSphereSaturnHook = (
   revolutionInDays = 1,
   initTime, // initial time initiated when component is open and used for time diff
   radius = 0.7, // radius of planet
+  rings,
   widthSegments = 30, // one segment of sphere dim
   heightSegments = 30 // one segment of sphere dim,
 ) => {
@@ -31,10 +32,6 @@ const useSphereSaturnHook = (
   const ringsLoader = loader.load(
     "https://i.postimg.cc/zz7Gr430/saturn-rings-top.png"
   );
-
-  // const ringsMaterial = loader.load(
-  //   "https://s3-us-west-2.amazonaws.com/s.cdpn.io/297733/saturnRings.png"
-  // );
 
   let currentPosition = [
     parentPosition[0] + relativePosition[0],
@@ -51,6 +48,9 @@ const useSphereSaturnHook = (
   const andleRotationPms = (360 / (hrsForRotation * 3600000)) * timeSpeed;
   // const andleRotationPms = 0.36;
   const speedRotation = (andleRotationPms * Math.PI) / 180;
+
+  const innerRadius = radius * 1.2804;
+  const outerRadius = radius * 2.3488;
 
   // const revolutionIn10thOfSeconds = revolutionInDays / (24 * 3600 * 10);
   // 360' / daysForRevolution / perHour / perMinute / perSecund / final
@@ -101,6 +101,42 @@ const useSphereSaturnHook = (
     }
   });
 
+  const vertexShader = `
+    uniform float innerRadius;
+    uniform float outerRadius;
+
+    varying vec3 localPosition;
+    
+    void main() {
+      localPosition = position;
+      vec3 viewPosition = (modelViewMatrix * vec4(localPosition, 1.)).xyz;
+      gl_Position = projectionMatrix * vec4(viewPosition, 1.);
+    }
+  `;
+
+  const fragmentShader = `
+    uniform sampler2D myTexture;
+    uniform float innerRadius;
+    uniform float outerRadius;
+
+    varying vec3 localPosition;
+
+    vec4 color() {
+      vec2 uv;
+      uv.x = (length(localPosition) - innerRadius) / (outerRadius - innerRadius);
+      if (uv.x < 0.0 || uv.x > 1.0) {
+        discard;
+      }
+      
+      vec4 pixel = texture2D(myTexture, uv);
+      return pixel;
+    }
+
+    void main() {
+      gl_FragColor = color();
+    }
+  `;
+
   return [
     <group>
       <mesh
@@ -111,7 +147,6 @@ const useSphereSaturnHook = (
           parentPosition[1] + relativePosition[1],
           parentPosition[2] + relativePosition[2]
         ]}
-        receiveShadow={true}
       >
         {showNames && (
           <Html>
@@ -134,12 +169,22 @@ const useSphereSaturnHook = (
           parentPosition[2] + relativePosition[2]
         ]}
       >
-        <ringBufferGeometry args={[radius * 1.2804, radius * 2.3488, 36]} />
-        <meshLambertMaterial
-          map={ringsLoader}
+        <ringGeometry attach="geometry" args={[innerRadius, outerRadius, 64]} />
+        <shaderMaterial
+          attach="material"
+          args={[
+            {
+              uniforms: {
+                myTexture: { value: ringsLoader },
+                innerRadius: { value: innerRadius },
+                outerRadius: { value: outerRadius }
+              },
+              vertexShader: vertexShader,
+              fragmentShader: fragmentShader
+            }
+          ]}
           side={DoubleSide}
           transparent={true}
-          opacity={1.2}
         />
       </mesh>
       {orbitVisible && (

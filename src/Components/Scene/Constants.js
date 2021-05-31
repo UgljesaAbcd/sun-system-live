@@ -5,6 +5,7 @@ import earth from "../../Components/Textures/earth2.jpg";
 import mars from "../../Components/Textures/mars.jpg";
 import jupiter from "../../Components/Textures/jupiter.jpg";
 import saturn from "../../Components/Textures/saturn.jpg";
+import rings from "../../Components/Textures/rings.jpg";
 import uran from "../../Components/Textures/uranus.jpg";
 import neptune from "../../Components/Textures/neptune.jpg";
 import pluto from "../../Components/Textures/pluto.jpg";
@@ -72,7 +73,8 @@ export const planetObjectList = [
     key: "saturn",
     value: "saturn",
     text: "Saturn",
-    picture: saturn
+    picture: saturn,
+    rings: rings
   },
   {
     tiltedAxis: 82.23,
@@ -197,7 +199,8 @@ export const saturnObject = {
   text: "Saturn",
   picture: saturn,
   distanceToSun: 1426666422,
-  type: "planet"
+  type: "planet",
+  rings: rings
 };
 
 export const uranObject = {

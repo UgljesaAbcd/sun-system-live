@@ -21,7 +21,8 @@ const SaturnSphere = ({
     saturnObject.rotationSpeedInHrs, // rotation speed of planet in hours
     saturnObject.revolutionInDays,
     initTime,
-    saturnObject.radius / 5000
+    saturnObject.radius / 5000,
+    saturnObject.rings
   );
 
   return saturnMash;

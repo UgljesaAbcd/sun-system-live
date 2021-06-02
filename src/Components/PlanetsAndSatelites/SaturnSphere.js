@@ -1,5 +1,6 @@
 import useSphereSaturnHook from "../Hooks/useSphereSaturnHook";
-import { saturnObject } from "../Scene/Constants";
+import useSphereHook from "../Hooks/useSphereHook";
+import { saturnObject, iapetusObject } from "./Constants";
 
 const SaturnSphere = ({
   timeSpeed = 1,
@@ -25,7 +26,32 @@ const SaturnSphere = ({
     saturnObject.rings
   );
 
-  return saturnMash;
+  const [iapetusMash] = useSphereHook(
+    showNames,
+    iapetusObject.text,
+    [
+      iapetusObject.distanceToPlanet / 5000,
+      0,
+      iapetusObject.distanceToPlanet / 5000
+    ],
+    [0, 0, 0],
+    iapetusObject.picture,
+    86400 / 4, // speed of time used for speed up animation
+    iapetusObject.tiltedAxis, // tilt of axis regarding to orbit
+    iapetusObject.orbitTilt,
+    orbitVisible,
+    iapetusObject.rotationSpeedInHrs, // rotation speed of planet in hours
+    iapetusObject.revolutionInDays,
+    initTime,
+    iapetusObject.radius / 5000
+  );
+
+  return (
+    <group>
+      {saturnMash}
+      {iapetusMash}
+    </group>
+  );
 };
 
 export default SaturnSphere;

@@ -5,6 +5,7 @@ import earth from "../../Components/Textures/earth2.jpg";
 import mars from "../../Components/Textures/mars.jpg";
 import jupiter from "../../Components/Textures/jupiter.jpg";
 import saturn from "../../Components/Textures/saturn.jpg";
+import rings from "../../Components/Textures/rings.jpg";
 import uran from "../../Components/Textures/uranus.jpg";
 import neptune from "../../Components/Textures/neptune.jpg";
 import pluto from "../../Components/Textures/pluto.jpg";
@@ -13,6 +14,7 @@ import io from "../../Components/Textures/io.jpg";
 import europe from "../../Components/Textures/europe.jpg";
 import ganymede from "../../Components/Textures/ganymede.jpg";
 import callisto from "../../Components/Textures/callisto.jpg";
+import iapetus from "../../Components/Textures/iapetus.jpg";
 
 export const sunObject = {
   tiltedAxis: 7.25,
@@ -107,6 +109,7 @@ export const saturnObject = {
   value: "saturn",
   text: "Saturn",
   picture: saturn,
+  rings: rings,
   distanceToSun: 1426666422,
   type: "planet"
 };
@@ -227,6 +230,20 @@ export const callistoObject = {
   text: "Callisto",
   picture: callisto,
   distanceToPlanet: 1882700,
+  type: "satelite"
+};
+
+export const iapetusObject = {
+  tiltedAxis: 0,
+  orbitTilt: 17.28,
+  rotationSpeedInHrs: 1903.716,
+  revolutionInDays: 79.3215,
+  radius: 734.35,
+  key: "iapetus",
+  value: "iapetus",
+  text: "Iapetus",
+  picture: iapetus,
+  distanceToPlanet: 3560820,
   type: "satelite"
 };
 

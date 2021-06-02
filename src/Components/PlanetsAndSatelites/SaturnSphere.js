@@ -1,5 +1,5 @@
 import useSphereSaturnHook from "../Hooks/useSphereSaturnHook";
-import useSphereHook from "../Hooks/useSphereHook";
+import useSphereHookIapetus from "../Hooks/useSphereHookIapetus";
 import { saturnObject, iapetusObject } from "./Constants";
 
 const SaturnSphere = ({
@@ -26,7 +26,7 @@ const SaturnSphere = ({
     saturnObject.rings
   );
 
-  const [iapetusMash] = useSphereHook(
+  const [iapetusMash] = useSphereHookIapetus(
     showNames,
     iapetusObject.text,
     [

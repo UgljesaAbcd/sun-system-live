@@ -16,6 +16,7 @@ import ganymede from "../../Components/Textures/ganymede.jpg";
 import callisto from "../../Components/Textures/callisto.jpg";
 import iapetus from "../../Components/Textures/iapetus.jpg";
 import tethys from "../../Components/Textures/tethys.jpg";
+import dione from "../../Components/Textures/dione.jpg";
 
 export const sunObject = {
   tiltedAxis: 7.25,
@@ -259,6 +260,20 @@ export const tethysObject = {
   text: "Tethys",
   picture: tethys,
   distanceToPlanet: 294619,
+  type: "satelite"
+};
+
+export const dioneObject = {
+  tiltedAxis: 0,
+  orbitTilt: 0.019 + saturnObject.tiltedAxis,
+  rotationSpeedInHrs: 65.68596,
+  revolutionInDays: 2.736915,
+  radius: 564.4,
+  key: "dione",
+  value: "dione",
+  text: "Dione",
+  picture: dione,
+  distanceToPlanet: 377396,
   type: "satelite"
 };
 

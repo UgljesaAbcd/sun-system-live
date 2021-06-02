@@ -1,6 +1,11 @@
 import useSphereSaturnHook from "../Hooks/useSphereSaturnHook";
 import useSphereHookIapetus from "../Hooks/useSphereHookIapetus";
-import { saturnObject, iapetusObject, tethysObject } from "./Constants";
+import {
+  saturnObject,
+  iapetusObject,
+  tethysObject,
+  dioneObject
+} from "./Constants";
 
 const SaturnSphere = ({
   timeSpeed = 1,
@@ -66,11 +71,32 @@ const SaturnSphere = ({
     tethysObject.radius / 5000
   );
 
+  const [dioneMash] = useSphereHookIapetus(
+    showNames,
+    dioneObject.text,
+    [
+      dioneObject.distanceToPlanet / 5000,
+      0,
+      dioneObject.distanceToPlanet / 5000
+    ],
+    [0, 0, 0],
+    dioneObject.picture,
+    86400 / 4, // speed of time used for speed up animation
+    dioneObject.tiltedAxis, // tilt of axis regarding to orbit
+    dioneObject.orbitTilt,
+    orbitVisible,
+    dioneObject.rotationSpeedInHrs, // rotation speed of planet in hours
+    dioneObject.revolutionInDays,
+    initTime,
+    dioneObject.radius / 5000
+  );
+
   return (
     <group>
       {saturnMash}
       {iapetusMash}
       {tethysMash}
+      {dioneMash}
     </group>
   );
 };

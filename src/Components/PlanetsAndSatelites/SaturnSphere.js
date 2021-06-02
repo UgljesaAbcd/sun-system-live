@@ -4,7 +4,9 @@ import {
   saturnObject,
   iapetusObject,
   tethysObject,
-  dioneObject
+  dioneObject,
+  rheaObject,
+  titanObject
 } from "./Constants";
 
 const SaturnSphere = ({
@@ -91,12 +93,50 @@ const SaturnSphere = ({
     dioneObject.radius / 5000
   );
 
+  const [rheaMash] = useSphereHookIapetus(
+    showNames,
+    rheaObject.text,
+    [rheaObject.distanceToPlanet / 5000, 0, rheaObject.distanceToPlanet / 5000],
+    [0, 0, 0],
+    rheaObject.picture,
+    86400 / 4, // speed of time used for speed up animation
+    rheaObject.tiltedAxis, // tilt of axis regarding to orbit
+    rheaObject.orbitTilt,
+    orbitVisible,
+    rheaObject.rotationSpeedInHrs, // rotation speed of planet in hours
+    rheaObject.revolutionInDays,
+    initTime,
+    rheaObject.radius / 5000
+  );
+
+  const [titanMash] = useSphereHookIapetus(
+    showNames,
+    titanObject.text,
+    [
+      titanObject.distanceToPlanet / 5000,
+      0,
+      titanObject.distanceToPlanet / 5000
+    ],
+    [0, 0, 0],
+    titanObject.picture,
+    86400 / 4, // speed of time used for speed up animation
+    titanObject.tiltedAxis, // tilt of axis regarding to orbit
+    titanObject.orbitTilt,
+    orbitVisible,
+    titanObject.rotationSpeedInHrs, // rotation speed of planet in hours
+    titanObject.revolutionInDays,
+    initTime,
+    titanObject.radius / 5000
+  );
+
   return (
     <group>
       {saturnMash}
       {iapetusMash}
       {tethysMash}
       {dioneMash}
+      {rheaMash}
+      {titanMash}
     </group>
   );
 };

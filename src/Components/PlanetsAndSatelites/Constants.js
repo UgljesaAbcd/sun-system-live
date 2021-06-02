@@ -17,6 +17,8 @@ import callisto from "../../Components/Textures/callisto.jpg";
 import iapetus from "../../Components/Textures/iapetus.jpg";
 import tethys from "../../Components/Textures/tethys.jpg";
 import dione from "../../Components/Textures/dione.jpg";
+import rhea from "../../Components/Textures/rhea.jpg";
+import titan from "../../Components/Textures/titan.jpg";
 
 export const sunObject = {
   tiltedAxis: 7.25,
@@ -274,6 +276,34 @@ export const dioneObject = {
   text: "Dione",
   picture: dione,
   distanceToPlanet: 377396,
+  type: "satelite"
+};
+
+export const rheaObject = {
+  tiltedAxis: 0,
+  orbitTilt: 0.345 + saturnObject.tiltedAxis,
+  rotationSpeedInHrs: 108.437088,
+  revolutionInDays: 4.518212,
+  radius: 766.2,
+  key: "rhea",
+  value: "rhea",
+  text: "Rhea",
+  picture: rhea,
+  distanceToPlanet: 527108,
+  type: "satelite"
+};
+
+export const titanObject = {
+  tiltedAxis: 0,
+  orbitTilt: 0.34854 + saturnObject.tiltedAxis,
+  rotationSpeedInHrs: 382.68,
+  revolutionInDays: 15.945,
+  radius: 2574.73,
+  key: "titan",
+  value: "titan",
+  text: "Titan",
+  picture: titan,
+  distanceToPlanet: 1221870,
   type: "satelite"
 };
 

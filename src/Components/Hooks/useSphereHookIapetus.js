@@ -36,8 +36,8 @@ const useSphereHookIapetus = (
 
   // tilt of planet axis
   const radians = (tiltedAxis * Math.PI) / 180;
-  const orbitalTiltInRadians = ((orbitTilt + 180) * Math.PI) / 180;
-  const orbitInclimentInRad = ((90 - orbitTilt) * Math.PI) / 180;
+  const orbitalTiltInRadians = ((180 - orbitTilt) * Math.PI) / 180;
+  const orbitInclimentInRad = ((90 + orbitTilt) * Math.PI) / 180;
   // speed of rotation of planet in 10th part of second
   const andleRotationPms = (360 / (hrsForRotation * 3600000)) * timeSpeed;
   // const andleRotationPms = 0.36;

@@ -20,7 +20,7 @@ const JupiterSphere = ({
     [0, 0, 0],
     parentPosition,
     jupiterObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     jupiterObject.tiltedAxis, // tilt of axis regarding to orbit
     jupiterObject.orbitTilt,
     orbitVisible,
@@ -36,7 +36,7 @@ const JupiterSphere = ({
     [ioObject.distanceToPlanet / 5000, 0, ioObject.distanceToPlanet / 5000],
     [0, 0, 0],
     ioObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     ioObject.tiltedAxis, // tilt of axis regarding to orbit
     ioObject.orbitTilt,
     orbitVisible,
@@ -56,7 +56,7 @@ const JupiterSphere = ({
     ],
     [0, 0, 0],
     europaObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     europaObject.tiltedAxis, // tilt of axis regarding to orbit
     europaObject.orbitTilt,
     orbitVisible,
@@ -76,7 +76,7 @@ const JupiterSphere = ({
     ],
     [0, 0, 0],
     ganymedeObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     ganymedeObject.tiltedAxis, // tilt of axis regarding to orbit
     ganymedeObject.orbitTilt,
     orbitVisible,
@@ -96,7 +96,7 @@ const JupiterSphere = ({
     ],
     [0, 0, 0],
     callistoObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     callistoObject.tiltedAxis, // tilt of axis regarding to orbit
     callistoObject.orbitTilt,
     orbitVisible,

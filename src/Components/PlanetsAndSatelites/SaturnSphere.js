@@ -22,7 +22,7 @@ const SaturnSphere = ({
     [0, 0, 0],
     parentPosition,
     saturnObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     saturnObject.tiltedAxis, // tilt of axis regarding to orbit
     saturnObject.orbitTilt,
     orbitVisible,
@@ -43,7 +43,7 @@ const SaturnSphere = ({
     ],
     [0, 0, 0],
     iapetusObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     iapetusObject.tiltedAxis, // tilt of axis regarding to orbit
     iapetusObject.orbitTilt,
     orbitVisible,
@@ -63,7 +63,7 @@ const SaturnSphere = ({
     ],
     [0, 0, 0],
     tethysObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     tethysObject.tiltedAxis, // tilt of axis regarding to orbit
     tethysObject.orbitTilt,
     orbitVisible,
@@ -83,7 +83,7 @@ const SaturnSphere = ({
     ],
     [0, 0, 0],
     dioneObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     dioneObject.tiltedAxis, // tilt of axis regarding to orbit
     dioneObject.orbitTilt,
     orbitVisible,
@@ -99,7 +99,7 @@ const SaturnSphere = ({
     [rheaObject.distanceToPlanet / 5000, 0, rheaObject.distanceToPlanet / 5000],
     [0, 0, 0],
     rheaObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     rheaObject.tiltedAxis, // tilt of axis regarding to orbit
     rheaObject.orbitTilt,
     orbitVisible,
@@ -119,7 +119,7 @@ const SaturnSphere = ({
     ],
     [0, 0, 0],
     titanObject.picture,
-    86400 / 4, // speed of time used for speed up animation
+    86400, // speed of time used for speed up animation
     titanObject.tiltedAxis, // tilt of axis regarding to orbit
     titanObject.orbitTilt,
     orbitVisible,

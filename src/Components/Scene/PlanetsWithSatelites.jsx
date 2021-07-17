@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Canvas } from "react-three-fiber";
 import Camera from "../Hooks/Camera";
-import { OrbitControls, Stars, Html } from "@react-three/drei";
+import { OrbitControls, Stars } from "@react-three/drei";
 import EarthSphere from "../PlanetsAndSatelites/EarthSphere";
 import JupiterSphere from "../PlanetsAndSatelites/JupiterSphere";
 import SaturnSphere from "../PlanetsAndSatelites/SaturnSphere";

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Canvas } from "react-three-fiber";
 import Camera from "../Hooks/Camera";
 import Sphere from "../SolarObjects/SphereComparison";
+import SaturnSphereComparison from "../PlanetsAndSatelites/SaturnSphereComparison";
 import { OrbitControls, Stars } from "@react-three/drei";
 import Menu from "semantic-ui-react/dist/commonjs/collections/Menu/Menu";
 import Dropdown from "semantic-ui-react/dist/commonjs/modules/Dropdown";
@@ -13,16 +14,32 @@ const Scene = () => {
 
   const getSphereObject = (nameOfObject, side) => {
     let myObj = planetObjectList.find(item => item.value === nameOfObject);
-    let xPosition = side === "right" ? myObj.radius + 2 : -myObj.radius - 2;
-    return (
-      <Sphere
-        position={[xPosition, 0, 0]}
-        picture={myObj.picture}
-        tiltedAxis={myObj.tiltedAxis}
-        rotationPerHrs={timeSpeed / myObj.rotationSpeed}
-        radius={myObj.radius}
-      />
-    );
+
+    if (nameOfObject === "saturn") {
+      let satxPosition =
+        side === "right" ? myObj.radius + 9 : -myObj.radius - 9;
+      return (
+        <SaturnSphereComparison
+          position={[satxPosition, 0, 0]}
+          timeSpeed={timeSpeed}
+          tiltedAxis={myObj.tiltedAxis}
+          hrsForRotation={myObj.rotationSpeed}
+          radius={myObj.radius}
+          picture={myObj.picture}
+        />
+      );
+    } else {
+      let xPosition = side === "right" ? myObj.radius + 2 : -myObj.radius - 2;
+      return (
+        <Sphere
+          position={[xPosition, 0, 0]}
+          picture={myObj.picture}
+          tiltedAxis={myObj.tiltedAxis}
+          rotationPerHrs={timeSpeed / myObj.rotationSpeed}
+          radius={myObj.radius}
+        />
+      );
+    }
   };
 
   const [leftActiveObj, setLeftActiveObj] = useState(

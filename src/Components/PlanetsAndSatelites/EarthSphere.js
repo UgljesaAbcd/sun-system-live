@@ -24,7 +24,7 @@ const EarthSphere = ({
     earthObject.radius / 5000
   );
 
-  const [moonMash, moomPosition] = useSphereHook(
+  const [moonMash] = useSphereHook(
     showNames,
     moonObject.text,
     [moonObject.distanceToPlanet / 5000, 0, moonObject.distanceToPlanet / 5000],

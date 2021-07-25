@@ -5,6 +5,7 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import EarthSphere from "../PlanetsAndSatelites/EarthSphere";
 import JupiterSphere from "../PlanetsAndSatelites/JupiterSphere";
 import SaturnSphere from "../PlanetsAndSatelites/SaturnSphere";
+import MarsSphere from "../PlanetsAndSatelites/MarsSphere";
 import Menu from "semantic-ui-react/dist/commonjs/collections/Menu/Menu";
 import Dropdown from "semantic-ui-react/dist/commonjs/modules/Dropdown";
 import { planetObjectList } from "./Constants";
@@ -44,6 +45,7 @@ const Scene = () => {
         {currentLeftValue.value === "saturn" && (
           <SaturnSphere {...providedProps} />
         )}
+        {currentLeftValue.value === "mars" && <MarsSphere {...providedProps} />}
 
         <Stars
           radius={200} // Radius of the inner sphere (default=100)

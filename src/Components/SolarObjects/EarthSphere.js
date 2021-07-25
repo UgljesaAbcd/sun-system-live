@@ -23,7 +23,7 @@ const EarthSphere = ({
     initTime
   );
 
-  const [moonMash, moomPosition] = useSphereHook(
+  const [moonMash] = useSphereHook(
     showNames,
     moonObject.text,
     [3, 0, 3],

@@ -245,6 +245,34 @@ export const moonObject = {
   type: "satelite"
 };
 
+export const phobosObject = {
+  tiltedAxis: 0,
+  orbitTilt: 1.093,
+  rotationSpeedInHrs: 11.12,
+  revolutionInDays: 0.319,
+  radius: 11.266,
+  key: "phobos",
+  value: "phobos",
+  text: "Phobos",
+  picture: moon,
+  distanceToPlanet: 9376,
+  type: "satelite"
+};
+
+export const deimosObject = {
+  tiltedAxis: 0,
+  orbitTilt: 1.788,
+  rotationSpeedInHrs: 30.3,
+  revolutionInDays: 1.262,
+  radius: 6.2,
+  key: "deimos",
+  value: "deimos",
+  text: "Deimos",
+  picture: moon,
+  distanceToPlanet: 23460,
+  type: "satelite"
+};
+
 export const plutoObject = {
   tiltedAxis: 122.5,
   orbitTilt: 17,

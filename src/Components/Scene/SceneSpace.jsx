@@ -6,6 +6,7 @@ import { OrbitControls, Html, Stars } from "@react-three/drei";
 import Camera from "../Hooks/Camera";
 import Menu from "semantic-ui-react/dist/commonjs/collections/Menu/Menu";
 import Checkbox from "semantic-ui-react/dist/commonjs/modules/Checkbox/Checkbox";
+import Dropdown from "semantic-ui-react/dist/commonjs/modules/Dropdown";
 import styles from "./style/Scene.module.scss";
 import sun from "../../Components/Textures/sun.jpg";
 import MercurySphere from "../SolarObjects/MercurySphere";
@@ -17,20 +18,37 @@ import SaturnSphere from "../SolarObjects/SaturnSphere";
 import UranSphere from "../SolarObjects/UranSphere";
 import NeptuneSphere from "../SolarObjects/NeptuneSphere";
 
+const timeSpeedOptions = [
+  { key: 1, value: 1, text: 1 },
+  { key: 1000, value: 1000, text: 1000 },
+  { key: 36000, value: 36000, text: 36000 },
+  { key: 86400, value: 86400, text: 86400 }
+];
+
 const Scene = () => {
   const [orbitVisible, setOrbitVisible] = useState(true);
   const [showNames, setShowNames] = useState(true);
   const [initTime] = useState(new Date());
-  const timeSpeed = 36000;
+  const [timeSpeed, setTimeSpeed] = useState({
+    key: 86400,
+    value: 86400,
+    text: 86400
+  });
   const xArrow = new Vector3(1, 0, 0);
   const yArrow = new Vector3(0, 1, 0);
   const zArrow = new Vector3(0, 0, 1);
   const xyzOrigin = new Vector3(0, 0, 0);
 
+  const changeTimeSpeed = (_, data) => {
+    let mySpeed = timeSpeedOptions.find(item => item.value === data.value);
+    setTimeSpeed(mySpeed);
+  };
+
   const providedProps = {
     initTime,
     orbitVisible,
-    showNames
+    showNames,
+    timeSpeed: timeSpeed.value
   };
 
   return (
@@ -60,8 +78,8 @@ const Scene = () => {
           position={[0, 0, 0]}
           picture={sun}
           tiltedAxis={7.25}
-          rotationPerHrs={timeSpeed / 672}
-          timeSpeed={timeSpeed}
+          rotationPerHrs={timeSpeed.value / 672}
+          timeSpeed={timeSpeed.value}
           name={"sun"}
         />
         <MercurySphere {...providedProps} />
@@ -113,6 +131,16 @@ const Scene = () => {
                 className={styles.show_orbits_cb}
               />
             </Menu.Item>
+            <Dropdown
+              basic
+              inverted={"true"}
+              text={timeSpeed.text}
+              value={timeSpeed.value}
+              onChange={changeTimeSpeed}
+              selection
+              options={timeSpeedOptions}
+              className={styles.dd_in_html}
+            />
           </Menu>
         </Html>
       </Canvas>

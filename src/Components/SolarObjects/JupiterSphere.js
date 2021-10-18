@@ -14,7 +14,7 @@ const JupiterSphere = ({
     [77, 0, 77],
     parentPosition,
     jupiterObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     jupiterObject.tiltedAxis, // tilt of axis regarding to orbit
     jupiterObject.orbitTilt,
     orbitVisible,

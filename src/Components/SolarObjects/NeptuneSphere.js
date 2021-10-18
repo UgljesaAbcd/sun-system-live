@@ -14,7 +14,7 @@ const NeptuneSphere = ({
     [449, 0, 449],
     parentPosition,
     neptuneObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     neptuneObject.tiltedAxis, // tilt of axis regarding to orbit
     neptuneObject.orbitTilt,
     orbitVisible,

@@ -14,7 +14,7 @@ const MarsSphere = ({
     [0, 0, 0],
     parentPosition,
     marsObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     marsObject.tiltedAxis, // tilt of axis regarding to orbit
     marsObject.orbitTilt,
     orbitVisible,
@@ -34,7 +34,7 @@ const MarsSphere = ({
     ],
     marsPosition ? marsPosition : [0, 0, 0],
     phobosObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     phobosObject.tiltedAxis, // tilt of axis regarding to orbit
     phobosObject.orbitTilt,
     orbitVisible,
@@ -54,7 +54,7 @@ const MarsSphere = ({
     ],
     marsPosition ? marsPosition : [0, 0, 0],
     deimosObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     deimosObject.tiltedAxis, // tilt of axis regarding to orbit
     deimosObject.orbitTilt,
     orbitVisible,

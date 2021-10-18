@@ -14,7 +14,7 @@ const EarthSphere = ({
     [0, 0, 0],
     parentPosition,
     earthObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     earthObject.tiltedAxis, // tilt of axis regarding to orbit
     earthObject.orbitTilt,
     orbitVisible,
@@ -30,7 +30,7 @@ const EarthSphere = ({
     [moonObject.distanceToPlanet / 5000, 0, moonObject.distanceToPlanet / 5000],
     earthPosition ? earthPosition : [0, 0, 0],
     moonObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     moonObject.tiltedAxis, // tilt of axis regarding to orbit
     moonObject.orbitTilt,
     orbitVisible,

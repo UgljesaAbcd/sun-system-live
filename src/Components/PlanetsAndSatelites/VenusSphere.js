@@ -14,7 +14,7 @@ const VenusSphere = ({
     [10, 0, 10],
     parentPosition,
     venusObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     venusObject.tiltedAxis, // tilt of axis regarding to orbit
     venusObject.orbitTilt,
     orbitVisible,

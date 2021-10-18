@@ -14,7 +14,7 @@ const MercurySphere = ({
     [5, 0, 5],
     parentPosition,
     mercuryObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     mercuryObject.tiltedAxis, // tilt of axis regarding to orbit
     mercuryObject.orbitTilt,
     orbitVisible,

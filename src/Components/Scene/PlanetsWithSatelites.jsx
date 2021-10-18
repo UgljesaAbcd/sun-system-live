@@ -11,23 +11,47 @@ import Dropdown from "semantic-ui-react/dist/commonjs/modules/Dropdown";
 import { planetObjectList } from "./Constants";
 import styles from "./style/Scene.module.scss";
 
-const Scene = () => {
-  const timeSpeed = 36000;
+const dropdownOption = planetObjectList.filter(
+  item =>
+    item.value === "earth" ||
+    item.value === "mars" ||
+    item.value === "jupiter" ||
+    item.value === "saturn"
+);
 
-  const [currentLeftValue, setCurrentLeftValue] = useState(planetObjectList[3]);
+const timeSpeedOptions = [
+  { key: 1, value: 1, text: 1 },
+  { key: 1000, value: 1000, text: 1000 },
+  { key: 36000, value: 36000, text: 36000 },
+  { key: 86400, value: 86400, text: 86400 }
+];
+
+const Scene = () => {
+  const [timeSpeed, setTimeSpeed] = useState({
+    key: 86400,
+    value: 86400,
+    text: 86400
+  });
+  const [currentLeftValue, setCurrentLeftValue] = useState(dropdownOption[0]);
   const [initTime] = useState(new Date());
   const [orbitVisible, setOrbitVisible] = useState(true);
   const [showNames, setShowNames] = useState(true);
 
   const handleDropdownChange = (e, data) => {
-    let myObj = planetObjectList.find(item => item.value === data.value);
+    let myObj = dropdownOption.find(item => item.value === data.value);
     setCurrentLeftValue(myObj);
+  };
+
+  const changeTimeSpeed = (_, data) => {
+    let mySpeed = timeSpeedOptions.find(item => item.value === data.value);
+    setTimeSpeed(mySpeed);
   };
 
   const providedProps = {
     initTime,
     orbitVisible,
-    showNames
+    showNames,
+    timeSpeed: timeSpeed.value
   };
 
   return (
@@ -65,7 +89,17 @@ const Scene = () => {
             value={currentLeftValue.value}
             onChange={handleDropdownChange}
             selection
-            options={planetObjectList}
+            options={dropdownOption}
+            className={styles.dd_in_html}
+          />
+          <Dropdown
+            basic
+            inverted={"true"}
+            text={timeSpeed.text}
+            value={timeSpeed.value}
+            onChange={changeTimeSpeed}
+            selection
+            options={timeSpeedOptions}
             className={styles.dd_in_html}
           />
         </Menu>

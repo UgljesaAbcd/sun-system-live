@@ -14,7 +14,7 @@ const MarsSphere = ({
     [22, 0, 22],
     parentPosition,
     marsObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     marsObject.tiltedAxis, // tilt of axis regarding to orbit
     marsObject.orbitTilt,
     orbitVisible,

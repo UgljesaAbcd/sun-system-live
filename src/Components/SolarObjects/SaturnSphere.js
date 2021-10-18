@@ -14,7 +14,7 @@ const SaturnSphere = ({
     [142, 0, 142],
     parentPosition,
     saturnObject.picture,
-    86400, // speed of time used for speed up animation
+    timeSpeed, // speed of time used for speed up animation
     saturnObject.tiltedAxis, // tilt of axis regarding to orbit
     saturnObject.orbitTilt,
     orbitVisible,
